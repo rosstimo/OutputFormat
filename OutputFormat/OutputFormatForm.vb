@@ -31,39 +31,58 @@ Public Class OutputFormatForm
 
     Function ValidateFeilds() As Boolean
         Dim problemMessage As String
+        Dim status As Boolean = True
 
-        'If AgeTextBox.Text = "" Then
-        'problemMessage &= "Age is required" & vbNewLine
-        'AgeTextBox.Focus()
-        'Else
         Try
             If CInt(AgeTextBox.Text) > 42 Then
                 problemMessage &= "You are too old!" & vbNewLine
             End If
         Catch ex As Exception
             problemMessage &= "Age should be a number" & vbNewLine
-            AgeTextBox.Focus()
+            status = False
+            'AgeTextBox.Focus()
         End Try
-        'End If
 
         If LastNameTextBox.Text = "" Then
             problemMessage &= "Last name is required" & vbNewLine
-            LastNameTextBox.Focus()
+            status = False
+            'LastNameTextBox.Focus()
         End If
 
         If FirstNameTextBox.Text = "" Then
             problemMessage &= "First name is required" & vbNewLine
-            FirstNameTextBox.Focus()
+            status = False
+            FirstNameTextBox.BackColor = Color.LightYellow
+            'FirstNameTextBox.Focus()
+        Else
+            FirstNameTextBox.BackColor = Color.White
         End If
 
         If problemMessage <> "" Then
-            MsgBox(problemMessage)
+            status = False
+            'MsgBox(problemMessage)
         End If
 
-
-
-        Return True
+        Return status
     End Function
 
+    Private Sub OutputFormatForm_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        DisplayButton.Enabled = False
+
+    End Sub
+
+    Private Sub FirstNameTextBox_Leave(sender As Object, e As EventArgs) Handles FirstNameTextBox.Leave,
+                                                                                    LastNameTextBox.Leave,
+                                                                                    AgeTextBox.Leave
+
+        'MsgBox("We got it")
+
+        If ValidateFeilds() Then
+            DisplayButton.Enabled = True
+        Else
+            DisplayButton.Enabled = False
+        End If
+
+    End Sub
 End Class

@@ -27,6 +27,7 @@ Partial Class OutputFormatForm
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.DisplayLabel = New System.Windows.Forms.Label()
         Me.DisplayFormToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.AgeTextBox = New System.Windows.Forms.TextBox()
@@ -37,7 +38,6 @@ Partial Class OutputFormatForm
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.ZipLabel = New System.Windows.Forms.Label()
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'DisplayButton
@@ -68,6 +68,16 @@ Partial Class OutputFormatForm
         Me.DisplayLabel.Size = New System.Drawing.Size(408, 334)
         Me.DisplayLabel.TabIndex = 2
         Me.DisplayFormToolTip.SetToolTip(Me.DisplayLabel, "Formated Text Display")
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(384, 346)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(199, 92)
+        Me.ClearButton.TabIndex = 13
+        Me.ClearButton.Text = "&Clear"
+        Me.DisplayFormToolTip.SetToolTip(Me.ClearButton, "Click to clear all fields")
+        Me.ClearButton.UseVisualStyleBackColor = True
         '
         'FirstNameTextBox
         '
@@ -149,16 +159,6 @@ Partial Class OutputFormatForm
         Me.ZipTextBox.Size = New System.Drawing.Size(285, 26)
         Me.ZipTextBox.TabIndex = 11
         '
-        'ClearButton
-        '
-        Me.ClearButton.Location = New System.Drawing.Point(384, 346)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(199, 92)
-        Me.ClearButton.TabIndex = 13
-        Me.ClearButton.Text = "&Clear"
-        Me.DisplayFormToolTip.SetToolTip(Me.ClearButton, "Click to clear all fields")
-        Me.ClearButton.UseVisualStyleBackColor = True
-        '
         'OutputFormatForm
         '
         Me.AcceptButton = Me.DisplayButton
@@ -181,6 +181,7 @@ Partial Class OutputFormatForm
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.DisplayButton)
         Me.Name = "OutputFormatForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Display Text"
         Me.ResumeLayout(False)
         Me.PerformLayout()
